@@ -30,6 +30,6 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log, IA
     await outputQueueItem.AddAsync(order);
 
     return req.CreateResponse(HttpStatusCode.OK, new {
-        message = $"Thank you for your order!"
+        message = $"Thank you for your order GIT!"
     });
 }
