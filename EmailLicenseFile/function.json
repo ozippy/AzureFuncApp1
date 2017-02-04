@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "licenses/{filename}.lic",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "sendGrid",
+      "name": "message",
+      "apiKey": "SendGridApiKey",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "ordersRow",
+      "tableName": "orders",
+      "partitionKey": "Orders",
+      "rowKey": "{filename}",
+      "take": 1,
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
